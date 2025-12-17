@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi Manikandan | Data Science & Business Analytics Portfolio</title>
+    
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --light-color: #f8fafc;
+        --dark-color: #1e293b;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--light-color);
+        color: var(--dark-color);
+        overflow-x: hidden;
+      }
+      .loading-overlay { 
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--light-color);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio of Ravi Manikandan - MSc Data Science & Business Analytics student specializing in Python, R, SQL, Power BI, and Machine Learning projects">
+    <meta name="keywords" content="Data Science, Business Analytics, Python, R Programming, SQL, Machine Learning, Power BI, Data Visualization, Portfolio, Odoo Developer">
+    <meta name="author" content="Ravi Manikandan">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Ravi Manikandan | Data Science Portfolio">
+    <meta property="og:description" content="MSc Data Science & Business Analytics student with Odoo development experience, showcasing Python, R, SQL, and data visualization projects">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://ravimanikandan.github.io/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://ravimanikandan.github.io">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ravi Manikandan | Data Science Portfolio">
+    <meta name="twitter:description" content="Data Science & Business Analytics projects portfolio with Odoo development experience">
+    <meta name="twitter:image" content="https://ravimanikandan.github.io/images/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ravimanikandan.github.io">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#2563eb">
+    
+    <!-- Favicon Variations -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Ravi Manikandan",
+            "description": "Data Science & Business Analytics professional",
+            "knowsAbout": ["Data Science", "Machine Learning", "Python", "R", "SQL", "Power BI", "Odoo"],
+            "image": "https://ravimanikandan.github.io/images/profile.jpg",
+            "email": "ravimanikandanm@gmail.com",
+            "telephone": "+91-9384710789",
+            "sameAs": [
+                "https://www.linkedin.com/in/ravi-m0507/",
+                "https://github.com/Ravi-bit-creater"
+            ],
+            "hasCredential": [{
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "MSc Data Science & Business Analytics"
+            }],
+            "alumniOf": {
+                "@type": "EducationalOrganization",
+                "name": "Hindusthan College of Arts and Science"
+            },
+            "jobTitle": "Data Science Student & Junior Odoo Developer",
+            "hasOccupation": {
+                "@type": "Occupation",
+                "name": "Junior Odoo Developer",
+                "startDate": "2024-06",
+                "endDate": "2025-08",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Biztechnovations Private Limited"
+                }
+            }
+        }
+    }
+    </script>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="skip-to-content" aria-label="Skip to main content">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav aria-label="Main Navigation">
+        <div class="container" role="navigation">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <!-- Theme toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Hi, I'm <span class="highlight">Ravi Manikandan</span></h1>
+                    <h2 class="hero-subtitle">MSc Data Science & Business Analytics</h2>
+                    <p class="hero-description">Transforming raw data into actionable business intelligence through advanced analytics, machine learning, and data visualization.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                        <!-- Quick contact info -->
+                        <div class="quick-contact">
+                            <a href="tel:9384710789" class="contact-link">
+                                <i class="fas fa-phone"></i> 9384710789
+                            </a>
+                            <a href="mailto:ravimanikandanm@gmail.com" class="contact-link">
+                                <i class="fas fa-envelope"></i> ravimanikandanm@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Interactive 3D Data Visualization -->
+                    <div class="data-visualization">
+                        <div class="visualization-container">
+                            <!-- 3D Cube for Data Science Concepts -->
+                            <div class="data-cube">
+                                <div class="cube-face front">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Analytics</span>
+                                </div>
+                                <div class="cube-face back">
+                                    <i class="fas fa-brain"></i>
+                                    <span>AI/ML</span>
+                                </div>
+                                <div class="cube-face right">
+                                    <i class="fas fa-database"></i>
+                                    <span>Data</span>
+                                </div>
+                                <div class="cube-face left">
+                                    <i class="fas fa-code"></i>
+                                    <span>Code</span>
+                                </div>
+                                <div class="cube-face top">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Viz</span>
+                                </div>
+                                <div class="cube-face bottom">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>Tools</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Floating Data Points -->
+                            <div class="data-points">
+                                <div class="data-point" style="--delay: 0s; --size: 20px; --color: #2563eb;">
+                                    <i class="fas fa-python"></i>
+                                </div>
+                                <div class="data-point" style="--delay: 0.5s; --size: 25px; --color: #10b981;">
+                                    <i class="fas fa-r-project"></i>
+                                </div>
+                                <div class="data-point" style="--delay: 1s; --size: 18px; --color: #8b5cf6;">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="data-point" style="--delay: 1.5s; --size: 22px; --color: #f59e0b;">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <div class="data-point" style="--delay: 2s; --size: 19px; --color: #ec4899;">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Interactive Controls -->
+                            <div class="visualization-controls">
+                                <button class="control-btn" id="toggleAnimation" title="Toggle Animation">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I'm a passionate Data Science graduate student specializing in transforming complex data into actionable business insights. My expertise spans across statistical analysis, predictive modeling, and data visualization.</p>
+                        
+                        <h3>Technical Focus</h3>
+                        <p>Currently pursuing MSc in Data Science and Business Analytics, focusing on practical applications of:</p>
+                        <ul>
+                            <li>Machine Learning & Predictive Analytics</li>
+                            <li>Statistical Modeling & Hypothesis Testing</li>
+                            <li>Business Intelligence & Data Visualization</li>
+                            <li>Big Data Processing & Cloud Analytics</li>
+                        </ul>
+                        
+                        <h3>Professional Goals</h3>
+                        <p>Seeking opportunities to leverage data-driven approaches for solving real-world business challenges and contributing to data-informed strategic decisions.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="100">0</div>
+                            <div class="stat-label">Hours of Coding</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="10">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="8">0</div>
+                            <div class="stat-label">Tools Mastered</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="2">0</div>
+                            <div class="stat-label">Academic Degrees</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="education">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <p class="section-subtitle">My academic journey in technology and data science</p>
+                
+                <div class="education-timeline">
+                    <!-- Undergraduate Degree -->
+                    <div class="education-card undergraduate">
+                        <div class="education-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="education-content">
+                            <div class="education-header">
+                                <h3>Bachelor of Science in Information Technology</h3>
+                                <span class="education-institution">Hindusthan College of Arts and Science, Coimbatore</span>
+                                <span class="education-duration">2020 - 2023</span>
+                                <span class="education-grade">CGPA: 7.2/10</span>
+                            </div>
+                            <div class="education-details">
+                                <h4>Key Focus Areas:</h4>
+                                <ul class="education-highlights">
+                                    <li>Database Management Systems (DBMS)</li>
+                                    <li>Web Technologies and Development</li>
+                                    <li>Software Engineering Principles</li>
+                                    <li>Java Programming and Object-Oriented Design</li>
+                                    <li>Computer Networks and Security</li>
+                                </ul>
+                                
+                                <div class="education-achievements">
+                                    <h4>Academic Achievements:</h4>
+                                    <ul>
+                                        <li>Completed projects in Java-based applications and web development</li>
+                                        <li>Developed database management systems using MySQL</li>
+                                        <li>Gained foundation in IT infrastructure and systems analysis</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Connector -->
+                    <div class="timeline-connector">
+                        <div class="connector-line"></div>
+                        <div class="connector-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Postgraduate Degree -->
+                    <div class="education-card postgraduate">
+                        <div class="education-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="education-content">
+                            <div class="education-header">
+                                <h3>Master of Science in Data Science & Business Analytics</h3>
+                                <span class="education-institution">Pursuing Postgraduate Degree</span>
+                                <span class="education-duration">2023 - Present</span>
+                                <span class="education-grade">Current CGPA: 8.5/10</span>
+                            </div>
+                            <div class="education-details">
+                                <h4>Specialized Coursework:</h4>
+                                <ul class="education-highlights">
+                                    <li>Machine Learning & Predictive Modeling</li>
+                                    <li>Statistical Analysis & Hypothesis Testing</li>
+                                    <li>Data Visualization & Business Intelligence</li>
+                                    <li>Big Data Analytics & Cloud Computing</li>
+                                    <li>Python & R Programming for Data Science</li>
+                                    <li>SQL Database Management & Optimization</li>
+                                </ul>
+                                
+                                <div class="education-achievements">
+                                    <h4>Current Focus:</h4>
+                                    <ul>
+                                        <li>Building end-to-end data science projects</li>
+                                        <li>Developing expertise in data-driven decision making</li>
+                                        <li>Applying statistical methods to business problems</li>
+                                        <li>Creating interactive dashboards and reports</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience">
+            <div class="container">
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">My journey in software development and data science</p>
+                
+                <div class="experience-timeline">
+                    <!-- Experience 1 -->
+                    <div class="experience-card">
+                        <div class="experience-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <h3>Junior Odoo Developer</h3>
+                                <span class="experience-company">Biztechnovations Private Limited</span>
+                                <span class="experience-duration">June 2024 - August 2025</span>
+                                <span class="experience-location">Remote</span>
+                            </div>
+                            <div class="experience-details">
+                                <p>Developed and customized Odoo ERP solutions for various business domains, focusing on data management, process automation, and system integration.</p>
+                                <div class="experience-responsibilities">
+                                    <h4>Key Responsibilities & Achievements:</h4>
+                                    <ul>
+                                        <li>Customized Odoo modules for inventory management, accounting, and CRM functionalities</li>
+                                        <li>Developed Python-based scripts for data migration and system integration</li>
+                                        <li>Created and optimized PostgreSQL databases for efficient data handling</li>
+                                        <li>Implemented automated reporting systems using Odoo's reporting tools</li>
+                                        <li>Collaborated with cross-functional teams to gather requirements and deliver solutions</li>
+                                        <li>Reduced manual data entry by 40% through automation workflows</li>
+                                    </ul>
+                                </div>
+                                <div class="experience-technologies">
+                                    <span class="tech-tag">Odoo</span>
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">PostgreSQL</span>
+                                    <span class="tech-tag">XML</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">ERP Systems</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section with FILTERS -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Data Science Projects</h2>
+                <p class="section-subtitle">Hands-on projects demonstrating practical application of data science concepts</p>
+                
+                <!-- Project filter buttons -->
+                <div class="project-filters" id="projectFilters">
+                    <button class="filter-btn active" data-filter="all" aria-pressed="true">All Projects</button>
+                    <button class="filter-btn" data-filter="python" aria-pressed="false">Python</button>
+                    <button class="filter-btn" data-filter="r" aria-pressed="false">R</button>
+                    <button class="filter-btn" data-filter="sql" aria-pressed="false">SQL</button>
+                    <button class="filter-btn" data-filter="visualization" aria-pressed="false">Visualization</button>
+                    <button class="filter-btn" data-filter="machine-learning" aria-pressed="false">Machine Learning</button>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- Project 1 - Python & ML -->
+                    <div class="project-card" data-categories="python machine-learning" tabindex="0">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="project-title">Sales Forecasting Model</h3>
+                        <p class="project-description">Time series analysis and predictive modeling for retail sales forecasting using ARIMA and Prophet with Python.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Prophet</span>
+                            <span class="tag">ARIMA</span>
+                            <span class="tag">Pandas</span>
+                        </div>
+                        <button class="project-link view-details-btn" data-project="1">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Project 2 - R & Statistics -->
+                    <div class="project-card" data-categories="r" tabindex="0">
+                        <div class="project-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3 class="project-title">Healthcare Analytics</h3>
+                        <p class="project-description">Statistical analysis of patient data using R for predictive modeling of readmission risks.</p>
+                        <div class="project-tags">
+                            <span class="tag">R</span>
+                            <span class="tag">Statistics</span>
+                            <span class="tag">ggplot2</span>
+                        </div>
+                        <button class="project-link view-details-btn" data-project="2">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Project 3 - Python & Visualization -->
+                    <div class="project-card" data-categories="python visualization" tabindex="0">
+                        <div class="project-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="project-title">Customer Sentiment Analysis</h3>
+                        <p class="project-description">NLP project analyzing customer reviews to extract sentiment using Python and visualization libraries.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Matplotlib</span>
+                            <span class="tag">Seaborn</span>
+                            <span class="tag">NLP</span>
+                        </div>
+                        <button class="project-link view-details-btn" data-project="3">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Project 4 - SQL & Power BI -->
+                    <div class="project-card" data-categories="sql visualization" tabindex="0">
+                        <div class="project-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="project-title">Business Intelligence Dashboard</h3>
+                        <p class="project-description">SQL data extraction and Power BI dashboard creation for business performance monitoring.</p>
+                        <div class="project-tags">
+                            <span class="tag">SQL</span>
+                            <span class="tag">Power BI</span>
+                            <span class="tag">Excel</span>
+                        </div>
+                        <button class="project-link view-details-btn" data-project="4">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Project 5 - Python & ML -->
+                    <div class="project-card" data-categories="python machine-learning" tabindex="0">
+                        <div class="project-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="project-title">Predictive Maintenance</h3>
+                        <p class="project-description">Machine learning model for predicting equipment failures using Python and Scikit-learn.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Scikit-learn</span>
+                            <span class="tag">NumPy</span>
+                        </div>
+                        <button class="project-link view-details-btn" data-project="5">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Project 6 - R & Visualization -->
+                    <div class="project-card" data-categories="r visualization" tabindex="0">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3 class="project-title">Market Analysis Report</h3>
+                        <p class="project-description">Comprehensive market analysis with R Markdown and interactive visualizations.</p>
+                        <div class="project-tags">
+                            <span class="tag">R</span>
+                            <span class="tag">R Markdown</span>
+                            <span class="tag">Shiny</span>
+                        </div>
+                        <button class="project-link view-details-btn" data-project="6">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Project counter -->
+                <div class="project-counter">
+                    Showing <span id="projectCount">6</span> of 6 projects
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">Tools and technologies I work with</p>
+                
+                <div class="skills-categories">
+                    <!-- Programming Languages -->
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Programming & Databases</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Python</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-width="90%"></div>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">R Programming</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-width="85%"></div>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">SQL (MySQL/PostgreSQL)</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-width="88%"></div>
+                                    <span class="skill-percentage">88%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Data Science Tools -->
+                    <div class="skill-category">
+                        <h3><i class="fas fa-database"></i> Data Science Libraries</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Pandas & NumPy</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-width="92%"></div>
+                                    <span class="skill-percentage">92%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Matplotlib & Seaborn</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-width="87%"></div>
+                                    <span class="skill-percentage">87%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Scikit-learn</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-width="85%"></div>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Visualization & Tools -->
+                    <div class="skill-category">
+                        <h3><i class="fas fa-chart-bar"></i> Visualization & Tools</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Power BI</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-width="82%"></div>
+                                    <span class="skill-percentage">82%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Excel (Advanced)</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-width="90%"></div>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Odoo ERP</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-width="80%"></div>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="resume">
+            <div class="container">
+                <h2 class="section-title">Resume</h2>
+                <p class="section-subtitle">Download my detailed resume to learn more about my qualifications and experience</p>
+                
+                <div class="resume-content">
+                    <div class="resume-card">
+                        <div class="resume-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Professional Resume</h3>
+                        <p>Latest updated resume detailing my education, skills, projects, and professional experience.</p>
+                        
+                        <div class="resume-file-info">
+                            <div class="file-info-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Ravi_Manikandan_Resume.pdf</span>
+                            </div>
+                            <div class="file-info-item">
+                                <i class="fas fa-file-archive"></i>
+                                <span>Size: 1.2 MB</span>
+                            </div>
+                            <div class="file-info-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Updated: December 2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="resume-download-options">
+                            <a href="assets/resume/Ravi_Manikandan_Resume.pdf" class="btn btn-primary download-btn" id="downloadResume" download="Ravi_Manikandan_Resume.pdf">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                        </div>
+                        
+                        <div class="resume-note">
+                            <p><i class="fas fa-info-circle"></i> Best viewed in Adobe Reader or modern PDF viewers</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-highlights">
+                        <h3>Quick Overview</h3>
+                        <div class="resume-summary">
+                            <div class="summary-item">
+                                <h4><i class="fas fa-graduation-cap"></i> Education</h4>
+                                <ul>
+                                    <li><strong>MSc Data Science & Business Analytics</strong><br>Current CGPA: 8.5/10</li>
+                                    <li><strong>BSc Information Technology</strong><br>Hindusthan College, CGPA: 7.2/10</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="summary-item">
+                                <h4><i class="fas fa-briefcase"></i> Experience</h4>
+                                <ul>
+                                    <li><strong>Junior Odoo Developer</strong><br>Biztechnovations Pvt Ltd (Jun 2024 - Aug 2025)</li>
+                                    <li><strong>Data Science Projects</strong><br>6+ completed projects in Python, R, SQL</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="summary-item">
+                                <h4><i class="fas fa-code"></i> Technical Skills</h4>
+                                <ul>
+                                    <li><strong>Programming:</strong> Python, R, SQL</li>
+                                    <li><strong>Data Science:</strong> Pandas, Scikit-learn, TensorFlow</li>
+                                    <li><strong>Visualization:</strong> Power BI, Matplotlib, Seaborn</li>
+                                    <li><strong>Tools:</strong> Odoo, Git, Excel, Jupyter</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="resume-contact-info">
+                            <h4><i class="fas fa-id-card"></i> Contact Information</h4>
+                            <div class="contact-details">
+                                <p><i class="fas fa-envelope"></i> ravimanikandanm@gmail.com</p>
+                                <p><i class="fas fa-phone"></i> +91 93847 10789</p>
+                                <p><i class="fab fa-linkedin"></i> https://www.linkedin.com/in/ravi-m0507/</p>
+                                <p><i class="fab fa-github"></i> https://github.com/Ravi-bit-creater?tab=repositories</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Open to collaborations, internships, and data science opportunities</p>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>ravimanikandanm@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>9384710789</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <h3>LinkedIn</h3>
+                                <p>https://www.linkedin.com/in/ravi-m0507/</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <h3>GitHub</h3>
+                                <p>https://github.com/Ravi-bit-creater?tab=repositories</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Send a Message</h3>
+                        <form id="messageForm">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" required aria-label="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" required aria-label="Your Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Subject" required aria-label="Message Subject">
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Your Message" rows="5" required aria-label="Your Message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Ravi Manikandan</h3>
+                    <p>Data Science & Business Analytics</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#education">Education</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#resume">Resume</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/ravi-m0507/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Ravi-bit-creater?tab=repositories" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:ravimanikandanm@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <p class="footer-copyright">&copy; <span id="currentYear"></span> Ravi Manikandan. All rights reserved. | MSc Data Science & Business Analytics</p>
+            <!-- Performance metrics -->
+            <div class="performance-metrics">
+                <small>Page loaded in <span id="loadTime">0</span>ms</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Loading overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading Portfolio...</p>
+        </div>
+    </div>
+
+    <!-- ====== PROJECT DETAIL MODALS ====== -->
+    
+    <!-- Modal 1: Sales Forecasting -->
+    <div class="modal" id="projectModal1" role="dialog" aria-modal="true" aria-labelledby="modalTitle1" aria-hidden="true">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h2 id="modalTitle1" class="modal-title">Sales Forecasting Model</h2>
+                <div class="modal-subtitle">Time Series Analysis | Predictive Modeling</div>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                    <p>Developed a comprehensive sales forecasting model for retail businesses using time series analysis techniques. The model predicts future sales trends based on historical data, helping businesses optimize inventory and staffing.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Technology Stack</h3>
+                    <div class="modal-tags">
+                        <span class="modal-tag">Python</span>
+                        <span class="modal-tag">Pandas</span>
+                        <span class="modal-tag">NumPy</span>
+                        <span class="modal-tag">Prophet</span>
+                        <span class="modal-tag">ARIMA</span>
+                        <span class="modal-tag">Matplotlib</span>
+                        <span class="modal-tag">Jupyter Notebook</span>
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-tasks"></i> Key Features</h3>
+                    <ul>
+                        <li>Historical sales data analysis and preprocessing</li>
+                        <li>Multiple time series models comparison (ARIMA, Prophet, SARIMA)</li>
+                        <li>Seasonality and trend decomposition</li>
+                        <li>Forecast accuracy evaluation using RMSE and MAPE</li>
+                        <li>Interactive visualization of predictions</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-chart-bar"></i> Results & Impact</h3>
+                    <p>Achieved 92% forecast accuracy for 30-day predictions. The model helped reduce inventory costs by 15% through better demand prediction.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-code-branch"></i> Project Links</h3>
+                    <div class="modal-links">
+                        <a href="#" class="btn btn-secondary" aria-label="View GitHub repository">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="btn btn-primary" aria-label="View live demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Healthcare Analytics -->
+    <div class="modal" id="projectModal2" role="dialog" aria-modal="true" aria-labelledby="modalTitle2" aria-hidden="true">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h2 id="modalTitle2" class="modal-title">Healthcare Analytics</h2>
+                <div class="modal-subtitle">Statistical Analysis | Risk Prediction</div>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                    <p>Statistical analysis of patient healthcare data to predict readmission risks and identify key factors affecting patient outcomes using R programming.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Technology Stack</h3>
+                    <div class="modal-tags">
+                        <span class="modal-tag">R Programming</span>
+                        <span class="modal-tag">RStudio</span>
+                        <span class="modal-tag">ggplot2</span>
+                        <span class="modal-tag">dplyr</span>
+                        <span class="modal-tag">caret</span>
+                        <span class="modal-tag">Statistical Models</span>
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-tasks"></i> Key Features</h3>
+                    <ul>
+                        <li>Exploratory data analysis of patient demographics</li>
+                        <li>Statistical hypothesis testing and correlation analysis</li>
+                        <li>Logistic regression for readmission risk prediction</li>
+                        <li>Data visualization for clinical insights</li>
+                        <li>Report generation with R Markdown</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-chart-bar"></i> Results & Impact</h3>
+                    <p>Identified 3 key factors reducing readmission risks by 25%. Provided actionable insights for healthcare providers to improve patient care.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-code-branch"></i> Project Links</h3>
+                    <div class="modal-links">
+                        <a href="#" class="btn btn-secondary" aria-label="View GitHub repository">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="btn btn-primary" aria-label="View analysis report">
+                            <i class="fas fa-file-pdf"></i> Analysis Report
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Customer Sentiment Analysis -->
+    <div class="modal" id="projectModal3" role="dialog" aria-modal="true" aria-labelledby="modalTitle3" aria-hidden="true">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h2 id="modalTitle3" class="modal-title">Customer Sentiment Analysis</h2>
+                <div class="modal-subtitle">NLP | Text Mining | Visualization</div>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                    <p>Natural Language Processing project analyzing customer reviews to extract sentiment, identify key topics, and provide insights for business improvement.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Technology Stack</h3>
+                    <div class="modal-tags">
+                        <span class="modal-tag">Python</span>
+                        <span class="modal-tag">NLTK</span>
+                        <span class="modal-tag">TextBlob</span>
+                        <span class="modal-tag">Scikit-learn</span>
+                        <span class="modal-tag">Matplotlib</span>
+                        <span class="modal-tag">Seaborn</span>
+                        <span class="modal-tag">WordCloud</span>
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-tasks"></i> Key Features</h3>
+                    <ul>
+                        <li>Text preprocessing and cleaning pipeline</li>
+                        <li>Sentiment analysis using machine learning classifiers</li>
+                        <li>Topic modeling with LDA and NMF</li>
+                        <li>Interactive word cloud generation</li>
+                        <li>Dashboard for sentiment trends visualization</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-chart-bar"></i> Results & Impact</h3>
+                    <p>Processed 10,000+ customer reviews with 89% sentiment classification accuracy. Identified 5 key improvement areas for product development.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-code-branch"></i> Project Links</h3>
+                    <div class="modal-links">
+                        <a href="#" class="btn btn-secondary" aria-label="View GitHub repository">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="btn btn-primary" aria-label="View interactive dashboard">
+                            <i class="fas fa-chart-line"></i> Dashboard
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: Business Intelligence Dashboard -->
+    <div class="modal" id="projectModal4" role="dialog" aria-modal="true" aria-labelledby="modalTitle4" aria-hidden="true">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h2 id="modalTitle4" class="modal-title">Business Intelligence Dashboard</h2>
+                <div class="modal-subtitle">SQL | Power BI | Data Visualization</div>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                    <p>End-to-end business intelligence solution involving SQL data extraction, transformation, and loading (ETL) with interactive Power BI dashboards for business performance monitoring.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Technology Stack</h3>
+                    <div class="modal-tags">
+                        <span class="modal-tag">SQL (MySQL)</span>
+                        <span class="modal-tag">Power BI</span>
+                        <span class="modal-tag">Excel</span>
+                        <span class="modal-tag">DAX</span>
+                        <span class="modal-tag">Power Query</span>
+                        <span class="modal-tag">Data Modeling</span>
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-tasks"></i> Key Features</h3>
+                    <ul>
+                        <li>SQL database design and optimization</li>
+                        <li>ETL pipeline for data extraction and transformation</li>
+                        <li>Interactive Power BI dashboards with drill-down capabilities</li>
+                        <li>Real-time KPI tracking and alerts</li>
+                        <li>Scheduled report automation</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-chart-bar"></i> Results & Impact</h3>
+                    <p>Reduced reporting time by 70%. Provided real-time business insights leading to 12% improvement in operational efficiency.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-code-branch"></i> Project Links</h3>
+                    <div class="modal-links">
+                        <a href="#" class="btn btn-secondary" aria-label="View SQL scripts">
+                            <i class="fas fa-database"></i> SQL Scripts
+                        </a>
+                        <a href="#" class="btn btn-primary" aria-label="View dashboard preview">
+                            <i class="fas fa-chart-bar"></i> Dashboard Preview
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5: Predictive Maintenance -->
+    <div class="modal" id="projectModal5" role="dialog" aria-modal="true" aria-labelledby="modalTitle5" aria-hidden="true">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h2 id="modalTitle5" class="modal-title">Predictive Maintenance</h2>
+                <div class="modal-subtitle">Machine Learning | Classification | IoT Data</div>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                    <p>Machine learning model for predicting equipment failures using sensor data, enabling proactive maintenance and reducing downtime in manufacturing environments.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Technology Stack</h3>
+                    <div class="modal-tags">
+                        <span class="modal-tag">Python</span>
+                        <span class="modal-tag">Scikit-learn</span>
+                        <span class="modal-tag">TensorFlow</span>
+                        <span class="modal-tag">Pandas</span>
+                        <span class="modal-tag">NumPy</span>
+                        <span class="modal-tag">Matplotlib</span>
+                        <span class="modal-tag">Jupyter</span>
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-tasks"></i> Key Features</h3>
+                    <ul>
+                        <li>Sensor data preprocessing and feature engineering</li>
+                        <li>Multiple ML model comparison (Random Forest, XGBoost, Neural Networks)</li>
+                        <li>Anomaly detection for early failure prediction</li>
+                        <li>Model performance evaluation and hyperparameter tuning</li>
+                        <li>Deployment-ready model pipeline</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-chart-bar"></i> Results & Impact</h3>
+                    <p>Achieved 94% accuracy in failure prediction 24 hours in advance. Reduced maintenance costs by 30% through proactive scheduling.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-code-branch"></i> Project Links</h3>
+                    <div class="modal-links">
+                        <a href="#" class="btn btn-secondary" aria-label="View GitHub repository">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="btn btn-primary" aria-label="View model documentation">
+                            <i class="fas fa-book"></i> Documentation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 6: Market Analysis Report -->
+    <div class="modal" id="projectModal6" role="dialog" aria-modal="true" aria-labelledby="modalTitle6" aria-hidden="true">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h2 id="modalTitle6" class="modal-title">Market Analysis Report</h2>
+                <div class="modal-subtitle">R Markdown | Data Visualization | Business Analytics</div>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                    <p>Comprehensive market analysis using R programming with interactive visualizations and automated report generation for strategic business decision-making.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Technology Stack</h3>
+                    <div class="modal-tags">
+                        <span class="modal-tag">R Programming</span>
+                        <span class="modal-tag">R Markdown</span>
+                        <span class="modal-tag">ggplot2</span>
+                        <span class="modal-tag">plotly</span>
+                        <span class="modal-tag">Shiny</span>
+                        <span class="modal-tag">dplyr</span>
+                        <span class="modal-tag">tidyr</span>
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-tasks"></i> Key Features</h3>
+                    <ul>
+                        <li>Market trend analysis and visualization</li>
+                        <li>Competitive analysis and benchmarking</li>
+                        <li>Customer segmentation using clustering algorithms</li>
+                        <li>Interactive dashboards with R Shiny</li>
+                        <li>Automated PDF/HTML report generation</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-chart-bar"></i> Results & Impact</h3>
+                    <p>Identified 3 new market opportunities. Provided data-driven recommendations resulting in 18% revenue growth for target segments.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-code-branch"></i> Project Links</h3>
+                    <div class="modal-links">
+                        <a href="#" class="btn btn-secondary" aria-label="View R Markdown source">
+                            <i class="fab fa-r-project"></i> R Source
+                        </a>
+                        <a href="#" class="btn btn-primary" aria-label="View interactive report">
+                            <i class="fas fa-chart-line"></i> Interactive Report
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Preview Modal -->
+    <div class="modal" id="resumePreviewModal" role="dialog" aria-modal="true" aria-labelledby="resumePreviewTitle" aria-hidden="true">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <h2 id="resumePreviewTitle" class="modal-title">Resume Preview</h2>
+                <div class="modal-subtitle">Ravi Manikandan - Data Science Portfolio</div>
+            </div>
+            
+            <div class="modal-body">
+                <div class="resume-preview-container">
+                    <div class="resume-preview-placeholder">
+                        <div class="preview-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h3>Resume Preview</h3>
+                        <p>For the best experience, please download the PDF file.</p>
+                        <div class="preview-actions">
+                            <a href="assets/resume/Ravi_Manikandan_Resume.pdf" class="btn btn-primary" download="Ravi_Manikandan_Resume.pdf">
+                                <i class="fas fa-download"></i> Download Full Resume
+                            </a>
+                            <p class="preview-note"><small>File: Ravi_Manikandan_Resume.pdf (1.2 MB)</small></p>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-preview-info">
+                        <h4><i class="fas fa-info-circle"></i> What's in my resume?</h4>
+                        <ul>
+                            <li><strong>Professional Summary</strong> - Overview of skills and experience</li>
+                            <li><strong>Education</strong> - Complete academic background</li>
+                            <li><strong>Work Experience</strong> - Detailed role descriptions</li>
+                            <li><strong>Projects</strong> - Technical projects with results</li>
+                            <li><strong>Technical Skills</strong> - Comprehensive skill matrix</li>
+                            <li><strong>Certifications</strong> - Relevant certifications</li>
+                            <li><strong>Contact Information</strong> - Full contact details</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registered: ', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX'); // Replace with your Google Analytics ID
+    </script>
+
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
