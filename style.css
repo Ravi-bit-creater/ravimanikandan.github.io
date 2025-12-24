@@ -58,6 +58,211 @@ body.dark-mode {
     --shadow-heavy: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
+/* ====== THEME OPTIONS ====== */
+/* Your original theme is already set in :root */
+
+/* Theme 1: Modern & Trustworthy (Navy, White, Gold) */
+body.theme-1 {
+    --primary-color: #0A1F44;       /* Deep Navy */
+    --secondary-color: #FFFFFF;     /* Clean White */
+    --accent-color: #FFD700;        /* Gold */
+    --dark-color: #333333;          /* Charcoal Gray */
+    --light-color: #F8F9FA;         /* Off-white */
+    --gray-color: #6C757D;          /* Medium Gray */
+    --light-gray: #E9ECEF;          /* Light Gray */
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --error-color: #dc3545;
+    --shadow: 0 10px 15px -3px rgba(10, 31, 68, 0.1);
+}
+
+body.theme-1.dark-mode {
+    --primary-color: #FFD700;       /* Gold becomes primary */
+    --secondary-color: #0A1F44;     /* Navy becomes secondary */
+    --accent-color: #FFFFFF;        /* White becomes accent */
+    --dark-color: #F8F9FA;          /* Off-white becomes text */
+    --light-color: #0A1F44;         /* Navy becomes background */
+    --gray-color: #E9ECEF;          /* Light gray becomes text */
+    --light-gray: #1a2536;          /* Darker navy for elements */
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* Theme 2: Minimalist & Elegant (Charcoal, Teal) */
+body.theme-2 {
+    --primary-color: #2C3E50;       /* Dark Charcoal */
+    --secondary-color: #FFFFFF;     /* White */
+    --accent-color: #1ABC9C;        /* Teal */
+    --dark-color: #2C3E50;          /* Dark Charcoal */
+    --light-color: #ECF0F1;         /* Light Gray */
+    --gray-color: #7F8C8D;          /* Gray */
+    --light-gray: #BDC3C7;          /* Light Gray */
+    --success-color: #2ECC71;
+    --warning-color: #F39C12;
+    --error-color: #E74C3C;
+    --shadow: 0 10px 15px -3px rgba(44, 62, 80, 0.1);
+}
+
+body.theme-2.dark-mode {
+    --primary-color: #1ABC9C;       /* Teal becomes primary */
+    --secondary-color: #2C3E50;     /* Charcoal becomes secondary */
+    --accent-color: #ECF0F1;        /* Light gray becomes accent */
+    --dark-color: #ECF0F1;          /* Light gray becomes text */
+    --light-color: #1a252f;         /* Darker charcoal */
+    --gray-color: #BDC3C7;
+    --light-gray: #34495E;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* Theme 3: Warm & Friendly (Purple, Cream, Peach) */
+body.theme-3 {
+    --primary-color: #4A306D;       /* Deep Purple */
+    --secondary-color: #F7F3E3;     /* Cream */
+    --accent-color: #FF9A8B;        /* Peach */
+    --dark-color: #2D2D2D;          /* Dark Gray */
+    --light-color: #F7F3E3;         /* Cream */
+    --gray-color: #8E8E8E;          /* Medium Gray */
+    --light-gray: #E0D9CC;          /* Light Cream */
+    --success-color: #5CB85C;
+    --warning-color: #FFA726;
+    --error-color: #D32F2F;
+    --shadow: 0 10px 15px -3px rgba(74, 48, 109, 0.1);
+}
+
+body.theme-3.dark-mode {
+    --primary-color: #FF9A8B;       /* Peach becomes primary */
+    --secondary-color: #4A306D;     /* Purple becomes secondary */
+    --accent-color: #F7F3E3;        /* Cream becomes accent */
+    --dark-color: #F7F3E3;          /* Cream becomes text */
+    --light-color: #3a2656;         /* Darker purple */
+    --gray-color: #E0D9CC;
+    --light-gray: #5a3f7a;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* Theme 4: High Contrast (Black, White, Blue) */
+body.theme-4 {
+    --primary-color: #121212;       /* Almost Black */
+    --secondary-color: #FFFFFF;     /* Pure White */
+    --accent-color: #007BFF;        /* Electric Blue */
+    --dark-color: #121212;          /* Almost Black */
+    --light-color: #FFFFFF;         /* White */
+    --gray-color: #6C757D;          /* Gray */
+    --light-gray: #F8F9FA;          /* Light Gray */
+    --success-color: #28A745;
+    --warning-color: #FFC107;
+    --error-color: #DC3545;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+body.theme-4.dark-mode {
+    --primary-color: #007BFF;       /* Blue becomes primary */
+    --secondary-color: #121212;     /* Black becomes secondary */
+    --accent-color: #FFFFFF;        /* White becomes accent */
+    --dark-color: #FFFFFF;          /* White becomes text */
+    --light-color: #000000;         /* Pure black */
+    --gray-color: #F8F9FA;
+    --light-gray: #1a1a1a;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+}
+
+/* Theme 5: Nature-Inspired (Green, Beige, Terracotta) */
+body.theme-5 {
+    --primary-color: #2E8B57;       /* Forest Green */
+    --secondary-color: #F5F5DC;     /* Beige */
+    --accent-color: #E07A5F;        /* Terracotta */
+    --dark-color: #3D2C1A;          /* Dark Brown */
+    --light-color: #F5F5DC;         /* Beige */
+    --gray-color: #8B7D6B;          /* Brown Gray */
+    --light-gray: #E8E4D8;          /* Light Beige */
+    --success-color: #4CAF50;
+    --warning-color: #FF9800;
+    --error-color: #F44336;
+    --shadow: 0 10px 15px -3px rgba(46, 139, 87, 0.1);
+}
+
+body.theme-5.dark-mode {
+    --primary-color: #E07A5F;       /* Terracotta becomes primary */
+    --secondary-color: #2E8B57;     /* Green becomes secondary */
+    --accent-color: #F5F5DC;        /* Beige becomes accent */
+    --dark-color: #F5F5DC;          /* Beige becomes text */
+    --light-color: #1e4d2e;         /* Darker green */
+    --gray-color: #E8E4D8;
+    --light-gray: #3d6b47;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* THEME SWITCHER IN NAVIGATION */
+.theme-switcher {
+    position: relative;
+}
+
+.theme-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 10px;
+    min-width: 200px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+}
+
+body.dark-mode .theme-dropdown {
+    background-color: #334155;
+}
+
+.theme-switcher:hover .theme-dropdown,
+.theme-switcher:focus-within .theme-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    color: var(--dark-color);
+    font-family: var(--font-main);
+}
+
+.theme-option:hover {
+    background-color: var(--light-gray);
+}
+
+.theme-option.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.theme-preview {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.theme-preview.theme-0 { background: linear-gradient(135deg, #2563eb, #3b82f6); }
+.theme-preview.theme-1 { background: linear-gradient(135deg, #0A1F44, #FFD700); }
+.theme-preview.theme-2 { background: linear-gradient(135deg, #2C3E50, #1ABC9C); }
+.theme-preview.theme-3 { background: linear-gradient(135deg, #4A306D, #FF9A8B); }
+.theme-preview.theme-4 { background: linear-gradient(135deg, #121212, #007BFF); }
+.theme-preview.theme-5 { background: linear-gradient(135deg, #2E8B57, #E07A5F); }
+
+
 /* ====== SKIP TO CONTENT ====== */
 .skip-to-content {
     position: absolute;
@@ -196,26 +401,12 @@ nav .container {
 }
 
 .theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--dark-color);
-    background-color: var(--light-gray);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
+display: flex;
+    list-style: none;
 }
 
 .theme-toggle:hover {
-    transform: rotate(30deg);
-    background-color: var(--primary-color);
-    color: white;
+    color: var(--primary-color);
 }
 
 .theme-toggle i {
@@ -977,16 +1168,19 @@ body.dark-mode .image-placeholder i {
     color: var(--gray-color);
 }
 
+/* Statistics Cards Animation - FIXED: Boxes will be visible initially */
 .about-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    opacity: 1; /* Changed from 0 to 1 to make boxes visible */
+    transform: translateY(0); /* Changed from 20px to 0 */
+    transition: all 0.8s ease;
 }
 
-@media (max-width: 576px) {
-    .about-stats {
-        grid-template-columns: 1fr;
-    }
+.about-stats.animated {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .stat-card {
@@ -995,15 +1189,53 @@ body.dark-mode .image-placeholder i {
     padding: 25px;
     text-align: center;
     box-shadow: var(--shadow-light);
-    transition: var(--transition);
+    transition: all 0.3s ease;
+    opacity: 1; /* Changed from 0 to 1 */
+    transform: scale(1); /* Changed from 0.8 to 1 */
 }
 
 body.dark-mode .stat-card {
     background-color: #334155;
 }
 
+.stat-card.animated {
+    opacity: 1;
+    transform: scale(1);
+    animation: popIn 0.5s ease forwards;
+}
+
+.stat-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.stat-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.stat-card:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.stat-card:nth-child(4) {
+    animation-delay: 0.7s;
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    70% {
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .stat-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.05);
     box-shadow: var(--shadow);
 }
 
@@ -1012,14 +1244,37 @@ body.dark-mode .stat-card {
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.stat-number.counting {
+    color: var(--success-color);
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
 }
 
 .stat-label {
     color: var(--gray-color);
     font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* ====== EDUCATION SECTION ====== */
+@media (max-width: 576px) {
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-card {
+        padding: 20px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+/* ====== FIXED EDUCATION SECTION ====== */
 .education {
     padding: 100px 0;
     background-color: white;
@@ -1049,7 +1304,7 @@ body.dark-mode .education {
 
 @media (max-width: 768px) {
     .education-timeline::before {
-        left: 30px;
+        left: 40px; /* Increased from 30px to 40px */
     }
 }
 
@@ -1062,6 +1317,8 @@ body.dark-mode .education {
     transition: var(--transition);
     overflow: hidden;
     border-left: 4px solid var(--primary-color);
+    margin-left: 60px; /* Added to prevent icon overlap on desktop */
+    margin-right: 0; /* Ensure no right margin */
 }
 
 body.dark-mode .education-card {
@@ -1077,11 +1334,12 @@ body.dark-mode .education-card {
     box-shadow: var(--shadow);
 }
 
+/* FIXED: Education Icon - Adjusted positioning */
 .education-icon {
     position: absolute;
-    left: -25px;
+    left: 5px; /* Adjusted from -25px to -40px to show full icon on desktop */
     top: 20px;
-    width: 50px;
+    width: 50px; /* Slightly larger for better visibility */
     height: 50px;
     background-color: var(--primary-color);
     border-radius: 50%;
@@ -1089,9 +1347,14 @@ body.dark-mode .education-card {
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.2rem;
-    z-index: 1;
+    font-size: 1.5rem; /* Larger icon */
+    z-index: 2; /* Ensure icon is above other elements */
     box-shadow: var(--shadow);
+    border: 4px solid var(--light-color); /* Add border to make icon stand out */
+}
+
+body.dark-mode .education-icon {
+    border-color: #1e293b;
 }
 
 .education-card.postgraduate .education-icon {
@@ -1100,17 +1363,45 @@ body.dark-mode .education-card {
 
 @media (max-width: 768px) {
     .education-icon {
-        left: 5px;
+        left: -30px; /* Adjusted for mobile */
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .education-card {
+        margin-left: 50px; /* Adjusted for mobile */
     }
 }
 
+/* For very small screens */
+@media (max-width: 576px) {
+    .education-timeline::before {
+        left: 35px; /* Adjusted for very small screens */
+    }
+    
+    .education-icon {
+        left: -25px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .education-card {
+        margin-left: 40px;
+    }
+}
+
+/* FIXED: Education content padding */
 .education-content {
-    padding: 30px 30px 30px 60px;
+    padding: 30px;
+    padding-left: 40px; /* Reduced left padding to make room for icon */
 }
 
 @media (max-width: 768px) {
     .education-content {
-        padding: 30px 20px 30px 50px;
+        padding: 25px;
+        padding-left: 35px; /* Adjusted for mobile */
     }
 }
 
@@ -1125,6 +1416,7 @@ body.dark-mode .education-card {
     color: var(--dark-color);
     margin-bottom: 10px;
     font-weight: 600;
+    margin-left: 25px;
 }
 
 .education-institution {
@@ -1135,8 +1427,9 @@ body.dark-mode .education-card {
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 500;
-    margin-right: 10px;
+    margin-right: 20px;
     margin-bottom: 8px;
+    /* margin-left: 15px; */
 }
 
 .education-card.postgraduate .education-institution {
@@ -1305,7 +1598,8 @@ body.dark-mode .connector-arrow {
     }
     
     .education-content {
-        padding: 20px 15px 20px 45px;
+        padding: 20px;
+        padding-left: 30px;
     }
     
     .education-header h3 {
@@ -1322,7 +1616,7 @@ body.dark-mode .connector-arrow {
     }
 }
 
-/* ====== EXPERIENCE SECTION ====== */
+/* ====== FIXED EXPERIENCE SECTION ====== */
 .experience {
     padding: 100px 0;
     background-color: #f8fafc;
@@ -1352,7 +1646,7 @@ body.dark-mode .experience {
 
 @media (max-width: 768px) {
     .experience-timeline::before {
-        left: 30px;
+        left: 40px; /* Increased from 30px to 40px */
     }
 }
 
@@ -1364,6 +1658,8 @@ body.dark-mode .experience {
     box-shadow: var(--shadow-light);
     transition: var(--transition);
     overflow: hidden;
+    margin-left: 60px; /* Added to prevent icon overlap on desktop */
+    margin-right: 0; /* Ensure no right margin */
 }
 
 body.dark-mode .experience-card {
@@ -1375,11 +1671,12 @@ body.dark-mode .experience-card {
     box-shadow: var(--shadow);
 }
 
+/* FIXED: Experience Icon - Adjusted positioning */
 .experience-icon {
     position: absolute;
-    left: -25px;
+    left: 5px; /* Adjusted from -25px to -40px to show full icon on desktop */
     top: 20px;
-    width: 50px;
+    width: 50px; /* Slightly larger for better visibility */
     height: 50px;
     background-color: var(--primary-color);
     border-radius: 50%;
@@ -1387,25 +1684,57 @@ body.dark-mode .experience-card {
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.2rem;
-    z-index: 1;
+    font-size: 1.5rem; /* Larger icon */
+    z-index: 2; /* Ensure icon is above other elements */
     box-shadow: var(--shadow-light);
+    border: 4px solid var(--light-color); /* Add border to make icon stand out */
+}
+
+body.dark-mode .experience-icon {
+    border-color: #1e293b;
 }
 
 @media (max-width: 768px) {
     .experience-icon {
-        left: 5px;
+        left: -30px; /* Adjusted for mobile */
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .experience-card {
+        margin-left: 50px; /* Adjusted for mobile */
     }
 }
 
+/* For very small screens */
+@media (max-width: 576px) {
+    .experience-timeline::before {
+        left: 35px; /* Adjusted for very small screens */
+    }
+    
+    .experience-icon {
+        left: -25px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .experience-card {
+        margin-left: 40px;
+    }
+}
+
+/* FIXED: Experience content padding */
 .experience-content {
     padding: 30px;
-    margin-left: 40px;
+    padding-left: 40px; /* Reduced left padding to make room for icon */
 }
 
 @media (max-width: 768px) {
     .experience-content {
-        margin-left: 60px;
+        margin-left: 0; /* Remove the margin-left on mobile */
+        padding-left: 35px; /* Adjusted for mobile */
     }
 }
 
@@ -1419,6 +1748,7 @@ body.dark-mode .experience-card {
     font-size: 1.5rem;
     color: var(--dark-color);
     margin-bottom: 8px;
+    margin-left: 15px;
 }
 
 .experience-company {
@@ -1537,7 +1867,7 @@ body.dark-mode .tech-tag {
     
     .experience-content {
         padding: 20px;
-        margin-left: 50px;
+        padding-left: 30px;
     }
     
     .experience-header h3 {
