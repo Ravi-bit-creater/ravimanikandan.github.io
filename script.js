@@ -56,6 +56,10 @@ class Portfolio {
         // Performance measurement
         this.pageLoadStart = performance.now();
         
+        // Certificate Elements
+        this.viewCertificateBtns = document.querySelectorAll('.view-certificate-btn');
+        this.certificatesSection = document.getElementById('certificates');
+        
         // Set current year
         if (this.currentYear) {
             this.currentYear.textContent = new Date().getFullYear();
@@ -113,6 +117,13 @@ class Portfolio {
             btn.addEventListener('click', (e) => this.openProjectModal(e, btn));
         });
 
+        // Certificate view buttons
+        if (this.viewCertificateBtns.length > 0) {
+            this.viewCertificateBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => this.handleCertificateView(e, btn));
+            });
+        }
+
         // Close modal with close button
         this.modalCloses.forEach(closeBtn => {
             closeBtn.addEventListener('click', () => this.closeCurrentModal());
@@ -139,6 +150,12 @@ class Portfolio {
         // Project card keyboard navigation
         this.projectCards.forEach(card => {
             card.addEventListener('keydown', (e) => this.handleProjectCardKeyDown(e, card));
+        });
+
+        // Certificate card keyboard navigation
+        const certificateCards = document.querySelectorAll('.certificate-card');
+        certificateCards.forEach(card => {
+            card.addEventListener('keydown', (e) => this.handleCertificateCardKeyDown(e, card));
         });
 
         // Initialize themes
@@ -177,6 +194,22 @@ class Portfolio {
                 rootMargin: '0px 0px -50px 0px'
             });
             skillsObserver.observe(skillsSection);
+        }
+
+        // Intersection Observer for Certificates Section
+        if (this.certificatesSection) {
+            const certificatesObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.animateCertificateCards();
+                        certificatesObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.3,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            certificatesObserver.observe(this.certificatesSection);
         }
 
         // Intersection Observer for Resume Section
@@ -736,6 +769,23 @@ class Portfolio {
         }
     }
 
+    // Certificate View Handler
+    handleCertificateView(e, btn) {
+        e.preventDefault();
+        const certificateId = btn.getAttribute('data-certificate');
+        
+        // Show notification about certificate view
+        this.showNotification('Certificate preview would open here. In a real implementation, this would open a modal with the certificate PDF or redirect to the certificate URL.', 'info');
+        
+        // Track certificate view
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'view_certificate', {
+                'event_category': 'engagement',
+                'event_label': certificateId
+            });
+        }
+    }
+
     // Keyboard Navigation
     handleKeyDown(e) {
         // Close modal with Escape key
@@ -761,6 +811,15 @@ class Portfolio {
                 this.navigateProjects(focusedCard, e.key);
             }
         }
+        
+        // Navigate certificates with arrow keys when focused
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            const focusedCard = document.activeElement.closest('.certificate-card');
+            if (focusedCard) {
+                e.preventDefault();
+                this.navigateCertificates(focusedCard, e.key);
+            }
+        }
     }
 
     navigateProjects(currentCard, direction) {
@@ -783,12 +842,39 @@ class Portfolio {
         }
     }
 
+    navigateCertificates(currentCard, direction) {
+        const cards = Array.from(document.querySelectorAll('.certificate-card'));
+        const currentIndex = cards.indexOf(currentCard);
+        let nextIndex;
+        
+        if (direction === 'ArrowRight') {
+            nextIndex = (currentIndex + 1) % cards.length;
+        } else if (direction === 'ArrowLeft') {
+            nextIndex = (currentIndex - 1 + cards.length) % cards.length;
+        }
+        
+        if (cards[nextIndex]) {
+            cards[nextIndex].focus();
+            this.announceToScreenReader(`Certificate ${nextIndex + 1} of ${cards.length}`);
+        }
+    }
+
     handleProjectCardKeyDown(e, card) {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             const viewDetailsBtn = card.querySelector('.view-details-btn');
             if (viewDetailsBtn) {
                 viewDetailsBtn.click();
+            }
+        }
+    }
+
+    handleCertificateCardKeyDown(e, card) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const viewCertificateBtn = card.querySelector('.view-certificate-btn');
+            if (viewCertificateBtn) {
+                viewCertificateBtn.click();
             }
         }
     }
@@ -845,6 +931,14 @@ class Portfolio {
                     }
                 }
             }, 16);
+        });
+    }
+
+    animateCertificateCards() {
+        const certificateCards = document.querySelectorAll('.certificate-card');
+        
+        certificateCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
         });
     }
 
