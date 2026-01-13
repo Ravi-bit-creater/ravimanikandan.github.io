@@ -2558,6 +2558,14 @@ body.dark-mode .certificate-card {
     letter-spacing: 0;
 }
 
+.certificate-badge .badge.ibm {
+    background-color: #0f62fe; /* IBM Blue */
+    color: #fff;
+    margin-left: 6px;
+    text-transform: none;
+}
+
+
 
 .certificate-content {
     flex-grow: 1;
