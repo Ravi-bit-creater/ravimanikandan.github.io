@@ -2550,6 +2550,15 @@ body.dark-mode .certificate-card {
     letter-spacing: 0.5px;
 }
 
+.certificate-badge .badge.google {
+    background-color: #4285F4; 
+    color: #fff;
+    margin-left: 6px;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+
 .certificate-content {
     flex-grow: 1;
     margin-bottom: 20px;
