@@ -17,15 +17,57 @@ class Portfolio {
         this.preloadCriticalResources();
         this.measurePerformance();
         
-        // Initialize certificate files mapping with metadata
- this.certificateFiles = {
-            g1: "certificates/google/g1.pdf",
-            g2: "certificates/google/g2.pdf",
-            g3: "certificates/google/g3.pdf",
-            ibm1: "certificates/ibm/ibm1.pdf",
-            ibm2: "certificates/ibm/ibm2.pdf",
-            ibm3: "certificates/ibm/ibm3.pdf",
+       // Initialize certificate files mapping with metadata
+        this.certificateFiles = {
+            g1: {
+                path: "certificates/google/g1.pdf",
+                title: "Google Data Analytics Professional Certificate",
+                issuer: "Google via Coursera",
+                date: "2023",
+                description: "Complete 8-course professional certificate covering the entire data analytics process"
+            },
+            g2: {
+                path: "certificates/google/g2.pdf",
+                title: "Google Data Analytics Capstone Project",
+                issuer: "Google via Coursera",
+                date: "2023",
+                description: "Complete case study analyzing Cyclistic bike-share data"
+            },
+            g3: {
+                path: "certificates/google/g3.pdf",
+                title: "Google Advanced Data Analytics Certificate",
+                issuer: "Google via Coursera",
+                date: "2023",
+                description: "Advanced data analytics techniques and machine learning fundamentals"
+            },
+            ibm1: {
+                path: "certificates/ibm/ibm1.pdf",
+                title: "IBM Data Science Professional Certificate",
+                issuer: "IBM via Coursera",
+                date: "2023",
+                description: "9-course program covering data science methodology, Python, SQL, and machine learning"
+            },
+            ibm2: {
+                path: "certificates/ibm/ibm2.pdf",
+                title: "Python for Data Science and AI",
+                issuer: "IBM via Coursera",
+                date: "2023",
+                description: "Python programming fundamentals for data science and artificial intelligence"
+            },
+            ibm3: {
+                path: "certificates/ibm/ibm3.pdf",
+                title: "Data Visualization with Python",
+                issuer: "IBM via Coursera",
+                date: "2023",
+                description: "Creating effective data visualizations using Python libraries"
+            }
         };
+        
+        // Load PDF.js library dynamically
+        this.loadPDFJS();
+        
+        // Load JSZip for creating zip files
+        this.loadJSZip();
     }
 
     setupElements() {
