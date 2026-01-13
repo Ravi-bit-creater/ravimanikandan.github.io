@@ -16,6 +16,16 @@ class Portfolio {
         this.initialize3DVisualization();
         this.preloadCriticalResources();
         this.measurePerformance();
+        
+        // Initialize certificate files mapping
+        this.certificateFiles = {
+            g1: "certificates/google/g1.pdf",
+            g2: "certificates/google/g2.pdf",
+            g3: "certificates/google/g3.pdf",
+            ibm1: "certificates/ibm/ibm1.pdf",
+            ibm2: "certificates/ibm/ibm2.pdf",
+            ibm3: "certificates/ibm/ibm3.pdf",
+        };
     }
 
     setupElements() {
@@ -53,12 +63,12 @@ class Portfolio {
         // Theme Switcher Elements
         this.themeOptions = document.querySelectorAll('.theme-option');
         
-        // Performance measurement
-        this.pageLoadStart = performance.now();
-        
         // Certificate Elements
         this.viewCertificateBtns = document.querySelectorAll('.view-certificate-btn');
         this.certificatesSection = document.getElementById('certificates');
+        
+        // Performance measurement
+        this.pageLoadStart = performance.now();
         
         // Set current year
         if (this.currentYear) {
@@ -773,15 +783,24 @@ class Portfolio {
     handleCertificateView(e, btn) {
         e.preventDefault();
         const certificateId = btn.getAttribute('data-certificate');
+        const filePath = this.certificateFiles[certificateId];
         
-        // Show notification about certificate view
-        this.showNotification('Certificate preview would open here. In a real implementation, this would open a modal with the certificate PDF or redirect to the certificate URL.', 'info');
+        if (filePath) {
+            // Open PDF in new tab
+            window.open(filePath, "_blank");
+            
+            // Show notification
+            this.showNotification('Opening certificate in new tab...', 'info');
+        } else {
+            // Fallback to notification if file not found
+            this.showNotification('Certificate preview would open here. In a real implementation, this would open a modal with the certificate PDF or redirect to the certificate URL.', 'info');
+        }
         
         // Track certificate view
         if (typeof gtag !== 'undefined') {
             gtag('event', 'view_certificate', {
-                'event_category': 'engagement',
-                'event_label': certificateId
+                event_category: 'engagement',
+                event_label: certificateId
             });
         }
     }
