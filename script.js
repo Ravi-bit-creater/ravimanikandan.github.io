@@ -17,44 +17,44 @@ class Portfolio {
         this.preloadCriticalResources();
         this.measurePerformance();
         
-       // Initialize certificate files mapping with metadata
+        // Initialize certificate files mapping with metadata
         this.certificateFiles = {
-            g1: {
+            'g1': {
                 path: "certificates/google/g1.pdf",
                 title: "Google Data Analytics Professional Certificate",
                 issuer: "Google via Coursera",
                 date: "2023",
                 description: "Complete 8-course professional certificate covering the entire data analytics process"
             },
-            g2: {
+            'g2': {
                 path: "certificates/google/g2.pdf",
                 title: "Google Data Analytics Capstone Project",
                 issuer: "Google via Coursera",
                 date: "2023",
                 description: "Complete case study analyzing Cyclistic bike-share data"
             },
-            g3: {
+            'g3': {
                 path: "certificates/google/g3.pdf",
                 title: "Google Advanced Data Analytics Certificate",
                 issuer: "Google via Coursera",
                 date: "2023",
                 description: "Advanced data analytics techniques and machine learning fundamentals"
             },
-            ibm1: {
+            'ibm1': {
                 path: "certificates/ibm/ibm1.pdf",
                 title: "IBM Data Science Professional Certificate",
                 issuer: "IBM via Coursera",
                 date: "2023",
                 description: "9-course program covering data science methodology, Python, SQL, and machine learning"
             },
-            ibm2: {
+            'ibm2': {
                 path: "certificates/ibm/ibm2.pdf",
                 title: "Python for Data Science and AI",
                 issuer: "IBM via Coursera",
                 date: "2023",
                 description: "Python programming fundamentals for data science and artificial intelligence"
             },
-            ibm3: {
+            'ibm3': {
                 path: "certificates/ibm/ibm3.pdf",
                 title: "Data Visualization with Python",
                 issuer: "IBM via Coursera",
@@ -65,9 +65,6 @@ class Portfolio {
         
         // Load PDF.js library dynamically
         this.loadPDFJS();
-        
-        // Load JSZip for creating zip files
-        this.loadJSZip();
     }
 
     setupElements() {
@@ -108,10 +105,6 @@ class Portfolio {
         
         // Theme Switcher Elements
         this.themeOptions = document.querySelectorAll('.theme-option');
-        
-        // PDF Viewer Elements (will be created dynamically)
-        this.pdfViewerModal = null;
-        this.pdfViewerContent = null;
         
         // Performance measurement
         this.pageLoadStart = performance.now();
@@ -173,10 +166,10 @@ class Portfolio {
             btn.addEventListener('click', (e) => this.openProjectModal(e, btn));
         });
 
-        // Certificate view buttons
+        // Certificate view buttons - SIMPLE VERSION
         if (this.viewCertificateBtns.length > 0) {
             this.viewCertificateBtns.forEach(btn => {
-                btn.addEventListener('click', (e) => this.handleCertificateView(e, btn));
+                btn.addEventListener('click', (e) => this.handleCertificateViewSimple(e, btn));
             });
         }
 
@@ -216,9 +209,6 @@ class Portfolio {
 
         // Initialize themes
         this.initTheme();
-        
-        // Create PDF viewer modal
-        this.createPDFViewerModal();
     }
 
     setupObservers() {
@@ -828,181 +818,24 @@ class Portfolio {
         }
     }
 
-    // PDF Viewer Methods
-    createPDFViewerModal() {
-        // Create PDF viewer modal HTML
-        const pdfViewerHTML = `
-            <div class="modal-overlay pdf-viewer-overlay" id="pdfViewerOverlay"></div>
-            <div class="modal pdf-viewer-modal" id="pdfViewerModal" aria-hidden="true" role="dialog" aria-labelledby="pdfViewerTitle">
-                <div class="modal-content pdf-viewer-content">
-                    <button class="modal-close pdf-viewer-close" aria-label="Close certificate viewer">
-                        <i class="fas fa-times"></i>
-                    </button>
-                    <div class="pdf-viewer-header">
-                        <h3 class="modal-title" id="pdfViewerTitle">Certificate Viewer</h3>
-                        <div class="pdf-viewer-info">
-                            <div class="certificate-meta">
-                                <span class="issuer" id="pdfIssuer"></span>
-                                <span class="date" id="pdfDate"></span>
-                            </div>
-                            <p class="certificate-description" id="pdfDescription"></p>
-                        </div>
-                    </div>
-                    <div class="pdf-viewer-body">
-                        <div class="pdf-controls">
-                            <button class="pdf-control-btn" id="prevPage" aria-label="Previous page">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <div class="page-info">
-                                Page <span id="currentPage">1</span> of <span id="totalPages">1</span>
-                            </div>
-                            <button class="pdf-control-btn" id="nextPage" aria-label="Next page">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                            <div class="zoom-controls">
-                                <button class="pdf-control-btn" id="zoomOut" aria-label="Zoom out">
-                                    <i class="fas fa-search-minus"></i>
-                                </button>
-                                <span class="zoom-level">100%</span>
-                                <button class="pdf-control-btn" id="zoomIn" aria-label="Zoom in">
-                                    <i class="fas fa-search-plus"></i>
-                                </button>
-                            </div>
-                            <button class="pdf-control-btn" id="downloadPdf" aria-label="Download certificate">
-                                <i class="fas fa-download"></i> Download
-                            </button>
-                            <button class="pdf-control-btn" id="fullscreenToggle" aria-label="Toggle fullscreen">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="pdf-container" id="pdfContainer">
-                            <div class="pdf-loading">
-                                <div class="spinner"></div>
-                                <p>Loading certificate...</p>
-                            </div>
-                            <canvas id="pdfCanvas" class="pdf-canvas"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        // Insert the modal into the DOM
-        document.body.insertAdjacentHTML('beforeend', pdfViewerHTML);
-        
-        // Set up references to PDF viewer elements
-        this.pdfViewerModal = document.getElementById('pdfViewerModal');
-        this.pdfViewerOverlay = document.getElementById('pdfViewerOverlay');
-        this.pdfCanvas = document.getElementById('pdfCanvas');
-        this.pdfContainer = document.getElementById('pdfContainer');
-        
-        // Set up event listeners for PDF viewer
-        this.setupPDFViewerEvents();
-        
-        // PDF.js variables
-        this.pdfDoc = null;
-        this.pageNum = 1;
-        this.pageRendering = false;
-        this.pageNumPending = null;
-        this.scale = 1.2;
-        this.currentCertificate = null;
-    }
-
-    setupPDFViewerEvents() {
-        if (!this.pdfViewerModal) return;
-        
-        // Close button
-        const closeBtn = this.pdfViewerModal.querySelector('.pdf-viewer-close');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => this.closePDFViewer());
-        }
-        
-        // Overlay click
-        if (this.pdfViewerOverlay) {
-            this.pdfViewerOverlay.addEventListener('click', () => this.closePDFViewer());
-        }
-        
-        // PDF navigation controls
-        const prevBtn = document.getElementById('prevPage');
-        const nextBtn = document.getElementById('nextPage');
-        const zoomInBtn = document.getElementById('zoomIn');
-        const zoomOutBtn = document.getElementById('zoomOut');
-        const downloadBtn = document.getElementById('downloadPdf');
-        const fullscreenBtn = document.getElementById('fullscreenToggle');
-        
-        if (prevBtn) prevBtn.addEventListener('click', () => this.prevPage());
-        if (nextBtn) nextBtn.addEventListener('click', () => this.nextPage());
-        if (zoomInBtn) zoomInBtn.addEventListener('click', () => this.zoomIn());
-        if (zoomOutBtn) zoomOutBtn.addEventListener('click', () => this.zoomOut());
-        if (downloadBtn) downloadBtn.addEventListener('click', () => this.downloadCurrentPDF());
-        if (fullscreenBtn) fullscreenBtn.addEventListener('click', () => this.toggleFullscreen());
-        
-        // Keyboard navigation for PDF viewer
-        document.addEventListener('keydown', (e) => {
-            if (!this.pdfViewerModal.classList.contains('active')) return;
-            
-            switch(e.key) {
-                case 'ArrowLeft':
-                    e.preventDefault();
-                    this.prevPage();
-                    break;
-                case 'ArrowRight':
-                    e.preventDefault();
-                    this.nextPage();
-                    break;
-                case '+':
-                case '=':
-                    e.preventDefault();
-                    this.zoomIn();
-                    break;
-                case '-':
-                    e.preventDefault();
-                    this.zoomOut();
-                    break;
-                case 'Escape':
-                    if (document.fullscreenElement) {
-                        document.exitFullscreen();
-                    }
-                    break;
-            }
-        });
-    }
-
-    loadPDFJS() {
-        // Load PDF.js library if not already loaded
-        if (typeof pdfjsLib === 'undefined') {
-            const script = document.createElement('script');
-            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
-            script.integrity = 'sha512-qPxJ2Q8P+8R9rXyY3CzEaA2g6FyFSvLAjqrgp2rT9XoK+/r6aHP4wQayOhDNjRrq2hH0qyKXcxly2C0Jg4XD5g==';
-            script.crossOrigin = 'anonymous';
-            script.onload = () => {
-                console.log('PDF.js loaded successfully');
-                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-            };
-            document.head.appendChild(script);
-        } else {
-            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-        }
-    }
-
-    // Certificate View Handler
-    async handleCertificateView(e, btn) {
+    // Certificate View Handler - SIMPLE VERSION (Opens PDF in new tab)
+    handleCertificateViewSimple(e, btn) {
         e.preventDefault();
         const certificateId = btn.getAttribute('data-certificate');
+        console.log('Certificate ID clicked:', certificateId);
+        
         const certificate = this.certificateFiles[certificateId];
         
         if (!certificate) {
-            this.showNotification('Certificate not found', 'error');
+            this.showNotification(`Certificate "${certificateId}" not found.`, 'error');
+            console.error('Available certificate IDs:', Object.keys(this.certificateFiles));
             return;
         }
         
-        this.currentCertificate = certificate;
+        // Open PDF in new tab
+        window.open(certificate.path, '_blank');
         
-        // Show loading state
-        this.showPDFViewer(certificate);
-        
-        // Load and render PDF
-        await this.loadAndRenderPDF(certificate.path);
+        this.showNotification(`Opening ${certificate.title}`, 'info');
         
         // Track certificate view
         if (typeof gtag !== 'undefined') {
@@ -1013,192 +846,12 @@ class Portfolio {
         }
     }
 
-    showPDFViewer(certificate) {
-        // Update modal content with certificate info
-        document.getElementById('pdfViewerTitle').textContent = certificate.title;
-        document.getElementById('pdfIssuer').textContent = `Issued by: ${certificate.issuer}`;
-        document.getElementById('pdfDate').textContent = `Date: ${certificate.date}`;
-        document.getElementById('pdfDescription').textContent = certificate.description;
-        
-        // Show the modal
-        this.pdfViewerModal.classList.add('active');
-        this.pdfViewerModal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        
-        // Trap focus in the modal
-        this.trapFocus(this.pdfViewerModal);
-        
-        // Announce to screen reader
-        this.announceToScreenReader(`Opening ${certificate.title} certificate viewer`);
-    }
-
-    closePDFViewer() {
-        this.pdfViewerModal.classList.remove('active');
-        this.pdfViewerModal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        
-        // Reset PDF viewer state
-        this.pdfDoc = null;
-        this.pageNum = 1;
-        this.scale = 1.2;
-        
-        // Announce to screen reader
-        this.announceToScreenReader('Certificate viewer closed');
-    }
-
-    async loadAndRenderPDF(url) {
+    // Load PDF.js library
+    loadPDFJS() {
+        // Optional: Load PDF.js if you want to implement PDF viewer later
         if (typeof pdfjsLib === 'undefined') {
-            this.showNotification('PDF viewer is loading, please try again in a moment', 'info');
-            return;
-        }
-        
-        try {
-            // Show loading state
-            const loadingEl = this.pdfContainer.querySelector('.pdf-loading');
-            if (loadingEl) {
-                loadingEl.style.display = 'flex';
-            }
-            
-            // Load the PDF
-            const loadingTask = pdfjsLib.getDocument(url);
-            this.pdfDoc = await loadingTask.promise;
-            
-            // Update total pages
-            document.getElementById('totalPages').textContent = this.pdfDoc.numPages;
-            
-            // Render the first page
-            await this.renderPage(this.pageNum);
-            
-            // Hide loading state
-            if (loadingEl) {
-                loadingEl.style.display = 'none';
-            }
-            
-        } catch (error) {
-            console.error('Error loading PDF:', error);
-            this.showNotification('Failed to load certificate. You can still download it.', 'error');
-            
-            // Show download button as fallback
-            const downloadBtn = document.getElementById('downloadPdf');
-            if (downloadBtn) {
-                downloadBtn.style.display = 'block';
-            }
-            
-            // Hide loading state
-            const loadingEl = this.pdfContainer.querySelector('.pdf-loading');
-            if (loadingEl) {
-                loadingEl.style.display = 'none';
-            }
-        }
-    }
-
-    async renderPage(num) {
-        this.pageRendering = true;
-        
-        try {
-            // Get the page
-            const page = await this.pdfDoc.getPage(num);
-            
-            // Set canvas size based on page size and scale
-            const viewport = page.getViewport({ scale: this.scale });
-            const canvas = this.pdfCanvas;
-            const context = canvas.getContext('2d');
-            
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
-            
-            // Render PDF page into canvas context
-            const renderContext = {
-                canvasContext: context,
-                viewport: viewport
-            };
-            
-            await page.render(renderContext).promise;
-            
-            // Update page number display
-            document.getElementById('currentPage').textContent = num;
-            
-            // Update zoom level display
-            document.querySelector('.zoom-level').textContent = `${Math.round(this.scale * 100)}%`;
-            
-            // Update button states
-            document.getElementById('prevPage').disabled = num <= 1;
-            document.getElementById('nextPage').disabled = num >= this.pdfDoc.numPages;
-            
-        } catch (error) {
-            console.error('Error rendering page:', error);
-        }
-        
-        this.pageRendering = false;
-        
-        // If there's a pending page, render it
-        if (this.pageNumPending !== null) {
-            this.renderPage(this.pageNumPending);
-            this.pageNumPending = null;
-        }
-    }
-
-    queueRenderPage(num) {
-        if (this.pageRendering) {
-            this.pageNumPending = num;
-        } else {
-            this.renderPage(num);
-        }
-    }
-
-    prevPage() {
-        if (this.pageNum <= 1) return;
-        this.pageNum--;
-        this.queueRenderPage(this.pageNum);
-        this.announceToScreenReader(`Page ${this.pageNum}`);
-    }
-
-    nextPage() {
-        if (!this.pdfDoc || this.pageNum >= this.pdfDoc.numPages) return;
-        this.pageNum++;
-        this.queueRenderPage(this.pageNum);
-        this.announceToScreenReader(`Page ${this.pageNum}`);
-    }
-
-    zoomIn() {
-        this.scale = Math.min(this.scale + 0.2, 3);
-        this.queueRenderPage(this.pageNum);
-        this.announceToScreenReader(`Zoomed to ${Math.round(this.scale * 100)}%`);
-    }
-
-    zoomOut() {
-        this.scale = Math.max(this.scale - 0.2, 0.5);
-        this.queueRenderPage(this.pageNum);
-        this.announceToScreenReader(`Zoomed to ${Math.round(this.scale * 100)}%`);
-    }
-
-    downloadCurrentPDF() {
-        if (this.currentCertificate) {
-            const link = document.createElement('a');
-            link.href = this.currentCertificate.path;
-            link.download = this.currentCertificate.title.replace(/\s+/g, '_') + '.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            this.showNotification(`Downloading ${this.currentCertificate.title}`, 'success');
-            this.trackDownload(link);
-        }
-    }
-
-    toggleFullscreen() {
-        const container = this.pdfContainer;
-        
-        if (!document.fullscreenElement) {
-            if (container.requestFullscreen) {
-                container.requestFullscreen();
-                document.getElementById('fullscreenToggle').innerHTML = '<i class="fas fa-compress"></i>';
-            }
-        } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-                document.getElementById('fullscreenToggle').innerHTML = '<i class="fas fa-expand"></i>';
-            }
+            // You can load PDF.js here if needed
+            console.log('PDF.js can be loaded here if PDF viewer is needed');
         }
     }
 
@@ -1206,11 +859,7 @@ class Portfolio {
     handleKeyDown(e) {
         // Close modal with Escape key
         if (e.key === 'Escape') {
-            if (this.pdfViewerModal && this.pdfViewerModal.classList.contains('active')) {
-                this.closePDFViewer();
-            } else {
-                this.closeCurrentModal();
-            }
+            this.closeCurrentModal();
             
             if (this.navLinks.classList.contains('active')) {
                 this.closeMobileMenu();
@@ -1564,6 +1213,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const portfolio = new Portfolio();
     portfolio.initProjectsFilter();
     
+    // Debug: Check what certificate IDs are available
+    console.log('Available certificate IDs:', Object.keys(portfolio.certificateFiles));
+    
+    // Debug: Check what certificate buttons exist in HTML
+    const certificateBtns = document.querySelectorAll('.view-certificate-btn');
+    console.log('Found certificate buttons:', certificateBtns.length);
+    certificateBtns.forEach((btn, index) => {
+        console.log(`Button ${index + 1}: data-certificate="${btn.getAttribute('data-certificate')}"`);
+    });
+    
     // Expose portfolio instance for debugging (optional)
     window.portfolio = portfolio;
 });
@@ -1595,220 +1254,4 @@ if ('serviceWorker' in navigator) {
                 console.log('ServiceWorker registration failed:', error);
             });
     });
-}
-
-// Add CSS for PDF viewer
-const pdfViewerCSS = `
-    .pdf-viewer-modal {
-        max-width: 1000px;
-        width: 95%;
-        max-height: 90vh;
-        padding: 0;
-        background: var(--card-bg);
-        border-radius: 12px;
-        box-shadow: var(--shadow-lg);
-    }
-    
-    .pdf-viewer-content {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        padding: 0;
-    }
-    
-    .pdf-viewer-header {
-        padding: 1.5rem 1.5rem 0.5rem;
-        border-bottom: 1px solid var(--border-color);
-        background: var(--card-bg);
-        border-radius: 12px 12px 0 0;
-    }
-    
-    .pdf-viewer-header .modal-title {
-        margin-bottom: 0.5rem;
-        color: var(--text-color);
-        font-size: 1.5rem;
-    }
-    
-    .pdf-viewer-info {
-        margin-top: 0.5rem;
-    }
-    
-    .certificate-meta {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 0.5rem;
-        font-size: 0.9rem;
-        color: var(--text-secondary);
-    }
-    
-    .certificate-description {
-        font-size: 0.95rem;
-        color: var(--text-color);
-        line-height: 1.5;
-    }
-    
-    .pdf-viewer-body {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        padding: 1rem;
-        overflow: hidden;
-    }
-    
-    .pdf-controls {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 0.75rem;
-        background: var(--bg-color);
-        border-radius: 8px;
-        margin-bottom: 1rem;
-        flex-wrap: wrap;
-    }
-    
-    .pdf-control-btn {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        background: var(--primary-color);
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-    }
-    
-    .pdf-control-btn:hover:not(:disabled) {
-        background: var(--primary-dark);
-        transform: translateY(-2px);
-    }
-    
-    .pdf-control-btn:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
-    
-    .page-info {
-        font-weight: 500;
-        color: var(--text-color);
-        margin: 0 0.5rem;
-    }
-    
-    .zoom-controls {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-left: auto;
-    }
-    
-    .zoom-level {
-        min-width: 45px;
-        text-align: center;
-        font-weight: 500;
-        color: var(--text-color);
-    }
-    
-    .pdf-container {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #f8f9fa;
-        border-radius: 8px;
-        overflow: auto;
-        position: relative;
-        min-height: 400px;
-    }
-    
-    .pdf-canvas {
-        max-width: 100%;
-        height: auto;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        border-radius: 4px;
-    }
-    
-    .pdf-loading {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: rgba(255, 255, 255, 0.9);
-        z-index: 10;
-    }
-    
-    .pdf-loading .spinner {
-        width: 50px;
-        height: 50px;
-        border: 4px solid #f3f3f3;
-        border-top: 4px solid var(--primary-color);
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin-bottom: 1rem;
-    }
-    
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-    
-    .pdf-viewer-close {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        z-index: 1001;
-        background: rgba(0,0,0,0.1);
-        color: var(--text-color);
-    }
-    
-    .pdf-viewer-close:hover {
-        background: rgba(0,0,0,0.2);
-    }
-    
-    /* Fullscreen styles */
-    .pdf-container:fullscreen {
-        padding: 2rem;
-        background: white;
-    }
-    
-    .pdf-container:fullscreen .pdf-canvas {
-        max-height: 90vh;
-    }
-    
-    @media (max-width: 768px) {
-        .pdf-viewer-modal {
-            width: 98%;
-            max-height: 95vh;
-        }
-        
-        .pdf-controls {
-            gap: 0.5rem;
-            padding: 0.5rem;
-        }
-        
-        .pdf-control-btn {
-            padding: 0.4rem 0.8rem;
-            font-size: 0.8rem;
-        }
-        
-        .zoom-controls {
-            margin-left: 0;
-        }
-        
-        .certificate-meta {
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-    }
-`;
-
-// Add PDF viewer CSS to the document
-const style = document.createElement('style');
-style.textContent = pdfViewerCSS;
-document.head.appendChild(style);
+};
