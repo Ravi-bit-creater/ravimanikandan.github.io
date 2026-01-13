@@ -18,53 +18,14 @@ class Portfolio {
         this.measurePerformance();
         
         // Initialize certificate files mapping with metadata
-        this.certificateFiles = {
-            'google-data-analytics': {
-                path: "certificates/google/Google_Data_Analytics_Certificate.pdf",
-                title: "Google Data Analytics Professional Certificate",
-                issuer: "Google via Coursera",
-                date: "2023",
-                description: "Complete 8-course professional certificate covering the entire data analytics process"
-            },
-            'ibm-data-science': {
-                path: "certificates/ibm/IBM_Data_Science_Certificate.pdf",
-                title: "IBM Data Science Professional Certificate",
-                issuer: "IBM via Coursera",
-                date: "2023",
-                description: "9-course program covering data science methodology, Python, SQL, and machine learning"
-            },
-            'python-data-science': {
-                path: "certificates/python/Python_Data_Science_Certificate.pdf",
-                title: "Python for Data Science and AI",
-                issuer: "IBM via Coursera",
-                date: "2023",
-                description: "Python programming fundamentals for data science and artificial intelligence"
-            },
-            'sql-mysql': {
-                path: "certificates/sql/SQL_MySQL_Certificate.pdf",
-                title: "SQL for Data Science",
-                issuer: "University of California, Davis",
-                date: "2023",
-                description: "Advanced SQL queries, database management, and data manipulation for data science"
-            },
-            'power-bi': {
-                path: "certificates/powerbi/Power_BI_Certificate.pdf",
-                title: "Power BI Data Visualization",
-                issuer: "Microsoft",
-                date: "2023",
-                description: "Creating interactive dashboards and reports using Microsoft Power BI"
-            },
-            'machine-learning': {
-                path: "certificates/ml/Machine_Learning_Certificate.pdf",
-                title: "Machine Learning Specialization",
-                issuer: "Stanford University via Coursera",
-                date: "2023",
-                description: "Fundamentals of machine learning, supervised and unsupervised learning algorithms"
-            }
+ this.certificateFiles = {
+            g1: "certificates/google/g1.pdf",
+            g2: "certificates/google/g2.pdf",
+            g3: "certificates/google/g3.pdf",
+            ibm1: "certificates/ibm/ibm1.pdf",
+            ibm2: "certificates/ibm/ibm2.pdf",
+            ibm3: "certificates/ibm/ibm3.pdf",
         };
-        
-        // Load PDF.js library dynamically
-        this.loadPDFJS();
     }
 
     setupElements() {
